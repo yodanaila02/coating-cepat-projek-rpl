@@ -1,0 +1,9 @@
+# SEO - robots.txt Coating Cepat
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /uploads/
+
+Sitemap: https://DOMAIN-ANDA.com/sitemap.xml

@@ -1,0 +1,308 @@
+/* =====================================================
+   TEMA "PREMIUM AUTOMOTIVE DARK LUXURY" — Coating Cepat
+   Warna: hitam #0D0D0D, abu gelap #1A1A1A/#2B2B2B,
+   aksen copper #D98E32, teks putih.
+   Heading: Oswald (uppercase bold) | Body: Inter
+   Mobile-first & fully responsive.
+   ===================================================== */
+:root {
+  --cc-black:  #0D0D0D;
+  --cc-dark:   #1A1A1A;
+  --cc-gray:   #2B2B2B;
+  --cc-accent: #D98E32;
+  --cc-accent-dark: #C97B2D;
+  --cc-text:   #F5F1EA;
+  --cc-muted:  #9B948A;
+}
+
+body {
+  background-color: var(--cc-black);
+  color: var(--cc-text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+.heading-font, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .04em;
+}
+.text-accent { color: var(--cc-accent) !important; }
+.text-secondary-light { color: var(--cc-muted) !important; }
+a { color: var(--cc-accent); text-decoration: none; }
+a:hover { color: var(--cc-accent-dark); }
+
+/* ---------- Tombol aksen copper ---------- */
+.btn-accent {
+  background: var(--cc-accent);
+  border: 1px solid var(--cc-accent);
+  color: #0D0D0D;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .08em;
+  transition: all .25s ease;
+}
+.btn-accent:hover { background: var(--cc-accent-dark); border-color: var(--cc-accent-dark); color: #0D0D0D; transform: translateY(-2px); }
+.btn-outline-accent {
+  background: transparent;
+  border: 1px solid var(--cc-accent);
+  color: var(--cc-accent);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .08em;
+  transition: all .25s ease;
+}
+.btn-outline-accent:hover { background: var(--cc-accent); color: #0D0D0D; }
+
+/* ---------- Navbar ---------- */
+.main-navbar {
+  background: rgba(13, 13, 13, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--cc-gray);
+}
+.main-navbar .nav-link { color: var(--cc-text); font-size: .9rem; }
+.main-navbar .nav-link.active, .main-navbar .nav-link:hover { color: var(--cc-accent); }
+.nav-spacer { height: 64px; }
+
+/* ---------- FITUR 4.1: Hero banner full-bleed dengan overlay gelap ---------- */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background:
+    linear-gradient(to bottom, rgba(13,13,13,.78), rgba(13,13,13,.92)),
+    radial-gradient(ellipse at 70% 20%, rgba(217,142,50,.22), transparent 55%),
+    repeating-linear-gradient(135deg, #111 0px, #111 2px, #0D0D0D 2px, #0D0D0D 14px);
+  border-bottom: 1px solid var(--cc-gray);
+  overflow: hidden;
+}
+.hero::after { /* garis aksen diagonal dekoratif */
+  content: '';
+  position: absolute;
+  right: -120px; top: -120px;
+  width: 420px; height: 420px;
+  border: 1px solid rgba(217,142,50,.35);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.08;
+}
+.hero h1 .accent { color: var(--cc-accent); }
+.hero .kicker {
+  color: var(--cc-accent);
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* ---------- Section umum ---------- */
+.section { padding: 90px 0; }
+.section-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+.section-sub { color: var(--cc-muted); max-width: 640px; }
+.title-line {
+  display: inline-block;
+  width: 56px; height: 3px;
+  background: var(--cc-accent);
+  margin-bottom: 14px;
+}
+
+/* ---------- FITUR 4.1: Why Choose Us (4 kartu bernomor 01-04) ---------- */
+.why-card {
+  background: var(--cc-dark);
+  border: 1px solid var(--cc-gray);
+  padding: 32px 26px;
+  height: 100%;
+  position: relative;
+  transition: transform .3s ease, border-color .3s ease;
+}
+.why-card:hover { transform: translateY(-6px); border-color: var(--cc-accent); }
+.why-card .num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--cc-accent);
+  line-height: 1;
+}
+.why-card i { color: var(--cc-accent); font-size: 1.6rem; }
+
+/* ---------- Kartu layanan, galeri, testimoni ---------- */
+.cc-card {
+  background: var(--cc-dark);
+  border: 1px solid var(--cc-gray);
+  transition: transform .3s ease, border-color .3s ease;
+  height: 100%;
+}
+.cc-card:hover { transform: translateY(-5px); border-color: var(--cc-accent); }
+.cc-card img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+.price-tag { color: var(--cc-accent); font-family: 'Oswald', sans-serif; font-size: 1.25rem; }
+
+/* ---------- FITUR 4.1: counter statistik ---------- */
+.stat-box { border-left: 2px solid var(--cc-accent); padding-left: 20px; }
+.stat-box .value { font-family: 'Oswald', sans-serif; font-size: 2.6rem; font-weight: 700; color: var(--cc-accent); }
+
+/* ---------- FITUR 4.6: slider perbandingan Before-After (JS Vanilla) ---------- */
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--cc-gray);
+  aspect-ratio: 4/3;
+  user-select: none;
+  background: var(--cc-dark);
+}
+.ba-slider img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.ba-slider .ba-after { clip-path: inset(0 0 0 50%); }
+.ba-slider .ba-handle {
+  position: absolute; top: 0; bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--cc-accent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ba-slider .ba-handle::after {
+  content: '\2194';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px; height: 42px;
+  background: var(--cc-accent);
+  color: #0D0D0D;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+.ba-slider input[type=range] {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  margin: 0;
+}
+.ba-label {
+  position: absolute; top: 12px;
+  background: rgba(13,13,13,.75);
+  color: var(--cc-text);
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  z-index: 2;
+}
+.ba-label.before { left: 12px; }
+.ba-label.after { right: 12px; }
+
+/* ---------- FITUR 4.5: filter galeri ---------- */
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--cc-gray);
+  color: var(--cc-muted);
+  padding: 8px 18px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  transition: all .25s;
+}
+.filter-btn.active, .filter-btn:hover { border-color: var(--cc-accent); color: var(--cc-accent); }
+
+/* ---------- FITUR 4.7: kartu testimoni (SwiperJS) ---------- */
+.testi-card {
+  background: var(--cc-dark);
+  border: 1px solid var(--cc-gray);
+  padding: 28px;
+  height: 100%;
+}
+.testi-card .stars { color: var(--cc-accent); }
+.swiper-pagination-bullet { background: var(--cc-muted); }
+.swiper-pagination-bullet-active { background: var(--cc-accent); }
+
+/* ---------- Form gelap ---------- */
+.form-control, .form-select, textarea.form-control {
+  background: var(--cc-dark);
+  border: 1px solid var(--cc-gray);
+  color: var(--cc-text);
+}
+.form-control:focus, .form-select:focus {
+  background: var(--cc-dark);
+  border-color: var(--cc-accent);
+  color: var(--cc-text);
+  box-shadow: 0 0 0 .2rem rgba(217,142,50,.2);
+}
+.form-label { color: var(--cc-text); font-size: .88rem; }
+
+/* ---------- FITUR 4.10: timeline status tracking ---------- */
+.timeline { list-style: none; padding-left: 0; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--cc-gray);
+}
+.timeline li { position: relative; padding-left: 38px; margin-bottom: 22px; }
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 3px; top: 4px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--cc-gray);
+  border: 2px solid var(--cc-black);
+}
+.timeline li.done::before { background: var(--cc-accent); }
+.timeline li.current::before { background: var(--cc-accent); box-shadow: 0 0 0 5px rgba(217,142,50,.25); }
+
+/* ---------- Floating WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 22px; bottom: 22px;
+  width: 56px; height: 56px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  z-index: 1050;
+  box-shadow: 0 6px 18px rgba(0,0,0,.45);
+  transition: transform .25s;
+}
+.wa-float:hover { transform: scale(1.1); color: #fff; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--cc-dark); border-top: 1px solid var(--cc-gray); }
+.footer-links a { color: var(--cc-muted); display: inline-block; padding: 3px 0; }
+.footer-links a:hover { color: var(--cc-accent); }
+
+/* ---------- Accordion FAQ gelap ---------- */
+.accordion-item { background: var(--cc-dark); border: 1px solid var(--cc-gray); }
+.accordion-button { background: var(--cc-dark); color: var(--cc-text); font-family: 'Oswald', sans-serif; }
+.accordion-button:not(.collapsed) { background: var(--cc-gray); color: var(--cc-accent); box-shadow: none; }
+.accordion-body { color: var(--cc-muted); }
+
+/* ---------- CTA penutup ---------- */
+.cta-band {
+  background:
+    linear-gradient(rgba(13,13,13,.55), rgba(13,13,13,.55)),
+    radial-gradient(ellipse at 30% 50%, rgba(217,142,50,.35), transparent 60%),
+    var(--cc-dark);
+  border-top: 1px solid var(--cc-gray);
+  border-bottom: 1px solid var(--cc-gray);
+}
+
+/* ---------- Responsif kecil ---------- */
+@media (max-width: 576px) {
+  .section { padding: 60px 0; }
+  .nav-spacer { height: 58px; }
+}

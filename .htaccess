@@ -1,0 +1,39 @@
+# =====================================================
+# .htaccess utama — Coating Cepat
+# Kompatibel InfinityFree (LiteSpeed/Apache)
+# =====================================================
+
+Options -Indexes
+
+# Aktifkan RewriteEngine
+RewriteEngine On
+
+# Blokir akses langsung ke folder sensitif
+RewriteRule ^config/.*$ - [F,L]
+RewriteRule ^includes/.*$ - [F,L]
+RewriteRule ^admin/includes/.*$ - [F,L]
+
+# Blokir file sensitif (gunakan FilesMatch yang kompatibel LiteSpeed)
+<FilesMatch "(schema\.sql|seed\.sql|\.env|INSTALASI\.md)$">
+  Require all denied
+</FilesMatch>
+
+# Fallback untuk server lama yang tidak support Require
+<IfModule !mod_authz_core.c>
+  <FilesMatch "(schema\.sql|seed\.sql|\.env|INSTALASI\.md)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
+# PHP settings kompatibel InfinityFree
+<IfModule mod_php.c>
+  php_value upload_max_filesize 2M
+  php_value post_max_size 8M
+  php_value max_execution_time 60
+  php_value memory_limit 128M
+</IfModule>
+<IfModule lsapi_module>
+  php_value upload_max_filesize 2M
+  php_value post_max_size 8M
+</IfModule>
